@@ -1,0 +1,118 @@
+📄 PROJECT DOCUMENT
+Enterprise Multi-Floor Networking Design (Third Networking Project)
+1. Overview
+
+This project presents the design and implementation of a scalable enterprise campus network for a multi-department organization operating across three floors of a building.
+
+The network was designed using Cisco Packet Tracer and follows a hierarchical architecture with redundant routing, VLAN segmentation, wireless access, and centralized server services.
+
+The aim is to provide secure, reliable, and efficient communication between all departments while ensuring future scalability.
+
+2. Network Requirements Summary
+
+The organization consists of multiple departments distributed across three floors:
+
+Floor 1
+Reception → 192.168.8.0/24
+Store → 192.168.7.0/24
+Logistics → 192.168.6.0/24
+Floor 2
+Finance → 192.168.5.0/24
+Human Resources → 192.168.4.0/24
+Sales → 192.168.3.0/24
+Floor 3
+Administration → 192.168.2.0/24
+IT Department → 192.168.1.0/24 (DHCP + Server services)
+3. Network Architecture Design
+
+The network uses a three-router redundant topology (triangle design):
+
+Core Routing Layer
+RF1
+RF2
+RF3
+
+The routers are interconnected using serial links:
+
+10.10.10.0/30
+10.10.10.4/30
+10.10.10.8/30
+
+This design ensures:
+
+Redundancy
+Fault tolerance
+Multiple routing paths
+4. VLAN and Subnet Design
+
+Each department is assigned its own VLAN and subnet to ensure isolation and security.
+
+Department	Network
+IT	192.168.1.0/24
+Admin	192.168.2.0/24
+Sales	192.168.3.0/24
+HR	192.168.4.0/24
+Finance	192.168.5.0/24
+Logistics	192.168.6.0/24
+Store	192.168.7.0/24
+Reception	192.168.8.0/24
+
+Each VLAN operates independently while inter-VLAN communication is enabled via routing.
+
+5. Key Technologies Implemented
+Network Design
+Hierarchical campus architecture
+Multi-router redundant topology
+VLAN-based segmentation
+Routing
+Static routing / dynamic routing between routers
+Redundant triangular router design
+Services
+DHCP server (located in IT department)
+Centralized IP allocation
+Wireless
+Access points deployed per department
+Full wireless coverage per floor
+Switching
+VLAN configuration on access switches
+Department-based segmentation
+6. IP Addressing Strategy
+Private IPv4 addressing scheme used (192.168.0.0 – 192.168.8.0 range)
+Each department has a /24 subnet for scalability
+Router interconnection uses /30 point-to-point links (10.10.10.0 series)
+7. Server Infrastructure
+
+The IT department hosts:
+
+DHCP Server
+Central network services
+Management systems
+
+All other departments obtain IP addresses dynamically via DHCP.
+
+8. Network Features
+
+✔ Multi-router redundancy
+✔ VLAN-based segmentation
+✔ Wireless connectivity in all departments
+✔ Centralized DHCP
+✔ Scalable IP addressing scheme
+✔ Fault-tolerant routing topology
+✔ Inter-department communication
+
+9. Testing and Verification
+
+The following tests were successful:
+
+Same VLAN communication
+Inter-VLAN routing
+DHCP IP assignment
+Router connectivity (RF1, RF2, RF3)
+End-to-end connectivity
+Wireless device connectivity
+Server reachability (IT department)
+10. Conclusion
+
+The designed network successfully meets the requirements of a scalable enterprise campus environment. The implementation ensures redundancy, efficient routing, and proper segmentation of departments using VLANs and subnetting.
+
+The architecture is suitable for future expansion and additional services.
